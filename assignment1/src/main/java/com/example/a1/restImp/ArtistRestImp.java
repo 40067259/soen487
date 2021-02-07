@@ -16,7 +16,7 @@ public class ArtistRestImp implements ArtistRest {
         return null;
     }
 
-    static{
+    /*static{
         String taylorBio = "Taylor Alison Swift is an American singer-songwriter. Her narrative songwriting, which often" +
                 " takes inspiration from her personal life, has received widespread critical plaudits and media coverage." +
                 " Born in West Reading, Pennsylvania, Swift relocated to Nashville, Tennessee, in 2004 to pursue a career " +
@@ -29,7 +29,7 @@ public class ArtistRestImp implements ArtistRest {
         artistList.add(taylor);
         artistList.add(katy);
 
-    }
+    }*/
 
     @Override
     public CopyOnWriteArrayList<Artist> getAllArtists() {
