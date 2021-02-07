@@ -2,18 +2,26 @@ package com.example.a1;
 
 import com.example.a1.artistClient.artistClient;
 import com.example.a1.rest.Artist;
+import com.example.a1.albumClient.AlbumClient;
+import com.example.a1.albumClient.MyResponseHandler;
 
+import java.io.IOException;
 import java.util.Scanner;
 
 public class client {
 
-    public static void main(String[] args)
-    {
+    public static void main(String[] args) throws IOException {
         artistClient ac = new artistClient();
         String nickName;
         String firstName;
         String lastName;
         String bio;
+        String isrc;
+        String title;
+        String description;
+        String year;
+        String artist;
+
         showMenu();
         int choice = 0;
         Scanner keyboard = new Scanner(System.in).useDelimiter("\n");
@@ -78,10 +86,55 @@ public class client {
                     ac.deleteArtist(nickName);
                     showMenu();
                     break;
-                case 6:
+                case 11:
                     System.out.println("have a nice day ");
                     keyboard.close();
                     System.exit(0);
+                case 6:
+                    System.out.println("following is all albums:");
+                    AlbumClient.getAlbum();
+                    showMenu();
+                    break;
+                case 7:
+                    System.out.println("please enter the nick name of the artist ");
+                    isrc = keyboard.next();
+                    AlbumClient.getAlbumbyID(isrc);
+                    showMenu();
+                    break;
+                case 8:
+                    System.out.println("enter the isrc");
+                    isrc = keyboard.next();
+                    System.out.println("enter the title");
+                    title = keyboard.next();
+                    System.out.println("enter the description");
+                    description = keyboard.next();
+                    System.out.println("enter the year");
+                    year = keyboard.next();
+                    System.out.println("enter the artist");
+                    artist = keyboard.next();
+                    AlbumClient.addAlbum(isrc, title, description, year, artist);
+                    showMenu();
+                    break;
+                case 9:
+                    System.out.println("enter the isrc");
+                    isrc = keyboard.next();
+                    System.out.println("enter the title");
+                    title = keyboard.next();
+                    System.out.println("enter the description");
+                    description = keyboard.next();
+                    System.out.println("enter the year");
+                    year = keyboard.next();
+                    System.out.println("enter the artist");
+                    artist = keyboard.next();
+                    AlbumClient.updateAlbum(isrc, title, description, year, artist);
+                    showMenu();
+                    break;
+                case 10:
+                    System.out.println("please enter the isrc");
+                    isrc = keyboard.next();
+                    AlbumClient.deleteAlbum(isrc);
+                    showMenu();
+                    break;
                 default:
                     System.out.println("invalid input, try again ");
 
@@ -92,7 +145,7 @@ public class client {
 
     public static void showMenu()
     {
-       System.out.println("1. get all artists"+"\n2.get a specific artist"+"\n3.add a artist"+"\n4.update a artist"+"\n5.delete a artist"+"\n6.quit");
+       System.out.println("1. get all artists"+"\n2.get a specific artist"+"\n3.add a artist"+"\n4.update a artist"+"\n5.delete a artist"+"\n6.get all albums.\n7.get album by isrc.\n8.add a new album.\n9.update an album.\n10.delete an album.\n11.quit");
     }
 
 }

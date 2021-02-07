@@ -2,10 +2,7 @@ package com.example.a1.albumClient;
 
 import java.io.IOException;
 import java.util.Scanner;
-import java.util.concurrent.CopyOnWriteArrayList;
 
-import com.example.a1.rest.Album;
-import com.example.a1.rest.AlbumRest;
 import org.apache.http.client.ResponseHandler;
 import org.apache.http.client.methods.*;
 import org.apache.http.impl.client.CloseableHttpClient;
@@ -22,98 +19,79 @@ public class AlbumClient {
             stringResponse.append(sc.nextLine());
             stringResponse.append("\n");
         }
-        response.close();
         return stringResponse.toString();
 
     }
 
-    public static void main(String[] argv) throws IOException {
-
-        System.out.println("Album client main method was called!.");
-
-        CloseableHttpClient httpClient = HttpClients.createDefault();
-
-        ResponseHandler<String> responseHandler = new MyResponseHandler();
-
-        HttpGet httpGet = new HttpGet("http://localhost:8080/jersey");
-
-        String httpResponse = httpClient.execute(httpGet, responseHandler);
-
-        httpClient.close();
-
-
-        }
-
-
-
-    public String getAlbum() throws IOException {
-        try(CloseableHttpClient client = HttpClients.createDefault())
-        {
-            HttpGet httpget = new HttpGet(String.format("http://localhost:8080/jersey/albums"));
-            CloseableHttpResponse response = client.execute(httpget);
-            return ReadResponse(response);
-        }
-        catch(IOException e)
-        {
-            e.printStackTrace();
-            return "Fail to get Albums.";
-        }
-    }
-
-    public String getAlbumbyID(String isrc) throws IOException
+    public static void main(String[] args) throws IOException
     {
-        try(CloseableHttpClient client = HttpClients.createDefault())
-        {
-            HttpGet httpget = new HttpGet(String.format("http://localhost:8080/jersey/get/%d", isrc));
-            CloseableHttpResponse response = client.execute(httpget);
-            return ReadResponse(response);
-        }
-        catch(IOException e)
-        {
-            e.printStackTrace();
-            return "Fail to get Albums.";
-        }
+
+        System.out.println("Album client main method was called!");
+
+//        CloseableHttpClient httpClient = HttpClients.createDefault();
+//
+//        ResponseHandler<String> responseHandler = new MyResponseHandler();
+//
+//        HttpGet httpGet = new HttpGet("http://localhost:8080/jersey");
+//
+//        String httpResponse = httpClient.execute(httpGet, responseHandler);
     }
 
-    public static void addAlbum(String isrc, String title, String description, String year, String artist) throws IOException {
-        try(CloseableHttpClient client = HttpClients.createDefault())
+        public static void getAlbum() throws IOException
         {
-            HttpPost httpPost = new HttpPost(String.format("http://localhost:8080/jersey/createAlbum/%d/%s/%d/%s/%d", isrc, title, description, year, artist));
-            CloseableHttpResponse httpResponse = client.execute(httpPost);
-            httpResponse.close();
-        }
-        catch(IOException e)
-        {
-            e.printStackTrace();
-            System.out.println("Fail to add album.");
-        }
+            try (CloseableHttpClient client = HttpClients.createDefault()) {
+                    HttpGet httpget = new HttpGet(String.format("http://localhost:8080/jersey/albums"));
+                    CloseableHttpResponse response = client.execute(httpget);
+//                ReadResponse(response);
+            } catch (IOException e) {
+                    e.printStackTrace();
+            }
+            }
+
+            public static void getAlbumbyID(String isrc) throws IOException
+            {
+                try (CloseableHttpClient client = HttpClients.createDefault()) {
+                    HttpGet httpget = new HttpGet(String.format("http://localhost:8080/jersey/get/%d", isrc));
+                    CloseableHttpResponse response = client.execute(httpget);
+//                    ReadResponse(response);
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+
+            public static void addAlbum (String isrc, String title, String description, String year, String artist) throws
+            IOException {
+                try (CloseableHttpClient client = HttpClients.createDefault()) {
+                    HttpPost httpPost = new HttpPost(String.format("http://localhost:8080/jersey/createAlbum/%d/%s/%d/%s/%d", isrc, title, description, year, artist));
+                    CloseableHttpResponse httpResponse = client.execute(httpPost);
+//                    httpResponse.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                    System.out.println("Fail to add album.");
+                }
+            }
+
+            public static void updateAlbum(String isrc, String title, String description, String year, String artist) throws IOException{
+                try (CloseableHttpClient client = HttpClients.createDefault()) {
+                    HttpPut httpput = new HttpPut(String.format("http://localhost:8080/jersey/modifyAlbum/%s/%d/%s/%d/%s", isrc, title, description, year, artist));
+                    CloseableHttpResponse httpResponse = client.execute(httpput);
+//                    httpResponse.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                    System.out.println("Fail to update album.");
+                }
+            }
+
+            public static void deleteAlbum (String isrc){
+                try (CloseableHttpClient client = HttpClients.createDefault()) {
+                    HttpDelete httpDelete = new HttpDelete(String.format("http://localhost:8080/jersey/deleteAlbum/%d", isrc));
+                    CloseableHttpResponse httpResponse = client.execute(httpDelete);
+//                    httpResponse.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                    System.out.println("Fail to delete album.");
+                }
+            }
+
     }
 
-    public static void updateAlbum(String isrc, String title, String description, String year, String artist) {
-        try(CloseableHttpClient client = HttpClients.createDefault())
-        {
-            HttpPut httpput = new HttpPut(String.format("http://localhost:8080/jersey/modifyAlbum/%s/%d/%s/%d/%s", isrc, title, description, year, artist));
-            CloseableHttpResponse httpResponse = client.execute(httpput);
-            httpResponse.close();
-        }
-        catch(IOException e)
-        {
-            e.printStackTrace();
-            System.out.println("Fail to update album.");
-        }
-    }
-
-    public static void deleteAlbum(String isrc) {
-        try(CloseableHttpClient client = HttpClients.createDefault())
-        {
-            HttpDelete httpDelete = new HttpDelete(String.format("http://localhost:8080/jersey/deleteAlbum/%d", isrc));
-            CloseableHttpResponse httpResponse = client.execute(httpDelete);
-            httpResponse.close();
-        }
-        catch(IOException e)
-        {
-            e.printStackTrace();
-            System.out.println("Fail to delete album.");
-        }
-    }
-}
