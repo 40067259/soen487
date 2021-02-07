@@ -145,7 +145,7 @@ public class client {
 
     public static void showMenu()
     {
-       System.out.println("1. get all artists"+"\n2.get a specific artist"+"\n3.add a artist"+"\n4.update a artist"+"\n5.delete a artist"+"\n6.get all albums.\n7.get album by isrc.\n8.add a new album.\n9.update an album.\n10.delete an album.\n11.quit");
+       System.out.println("1.get all artists."+"\n2.get a specific artist."+"\n3.add a artist."+"\n4.update a artist."+"\n5.delete a artist."+"\n6.get all albums.\n7.get album by isrc.\n8.add a new album.\n9.update an album.\n10.delete an album.\n11.quit");
     }
 
 }

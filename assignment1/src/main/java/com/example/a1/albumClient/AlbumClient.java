@@ -42,18 +42,18 @@ public class AlbumClient {
             try (CloseableHttpClient client = HttpClients.createDefault()) {
                     HttpGet httpget = new HttpGet(String.format("http://localhost:8080/jersey/albums"));
                     CloseableHttpResponse response = client.execute(httpget);
-//                ReadResponse(response);
+                    ReadResponse(response);
             } catch (IOException e) {
                     e.printStackTrace();
-            }
+                }
             }
 
             public static void getAlbumbyID(String isrc) throws IOException
             {
                 try (CloseableHttpClient client = HttpClients.createDefault()) {
-                    HttpGet httpget = new HttpGet(String.format("http://localhost:8080/jersey/get/%d", isrc));
+                    HttpGet httpget = new HttpGet(String.format("http://localhost:8080/jersey/get/%s", isrc));
                     CloseableHttpResponse response = client.execute(httpget);
-//                    ReadResponse(response);
+                    ReadResponse(response);
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
@@ -62,9 +62,9 @@ public class AlbumClient {
             public static void addAlbum (String isrc, String title, String description, String year, String artist) throws
             IOException {
                 try (CloseableHttpClient client = HttpClients.createDefault()) {
-                    HttpPost httpPost = new HttpPost(String.format("http://localhost:8080/jersey/createAlbum/%d/%s/%d/%s/%d", isrc, title, description, year, artist));
+                    HttpPost httpPost = new HttpPost(String.format("http://localhost:8080/jersey/createAlbum/%s/%s/%s/%s/%s", isrc, title, description, year, artist));
                     CloseableHttpResponse httpResponse = client.execute(httpPost);
-//                    httpResponse.close();
+                    httpResponse.close();
                 } catch (IOException e) {
                     e.printStackTrace();
                     System.out.println("Fail to add album.");
@@ -73,20 +73,20 @@ public class AlbumClient {
 
             public static void updateAlbum(String isrc, String title, String description, String year, String artist) throws IOException{
                 try (CloseableHttpClient client = HttpClients.createDefault()) {
-                    HttpPut httpput = new HttpPut(String.format("http://localhost:8080/jersey/modifyAlbum/%s/%d/%s/%d/%s", isrc, title, description, year, artist));
+                    HttpPut httpput = new HttpPut(String.format("http://localhost:8080/jersey/modifyAlbum/%s/%s/%s/%s/%s", isrc, title, description, year, artist));
                     CloseableHttpResponse httpResponse = client.execute(httpput);
-//                    httpResponse.close();
+                    httpResponse.close();
                 } catch (IOException e) {
                     e.printStackTrace();
                     System.out.println("Fail to update album.");
                 }
             }
 
-            public static void deleteAlbum (String isrc){
+            public static void deleteAlbum (String isrc) throws IOException{
                 try (CloseableHttpClient client = HttpClients.createDefault()) {
-                    HttpDelete httpDelete = new HttpDelete(String.format("http://localhost:8080/jersey/deleteAlbum/%d", isrc));
+                    HttpDelete httpDelete = new HttpDelete(String.format("http://localhost:8080/jersey/deleteAlbum/%s", isrc));
                     CloseableHttpResponse httpResponse = client.execute(httpDelete);
-//                    httpResponse.close();
+                    httpResponse.close();
                 } catch (IOException e) {
                     e.printStackTrace();
                     System.out.println("Fail to delete album.");

@@ -78,7 +78,7 @@ public class AlbumJerseyController {
         else album.setDescription(description);
         boolean success = albumRest.updateAlbum(album);
         if(success) return "Updated the album successfully!";
-        else return "Sorry, your targeted album doesn't existe";
+        else return "Sorry, your targeted album doesn't exist";
     }
 
     @DELETE
