@@ -92,6 +92,7 @@ public class client {
                     System.exit(0);
                 case 6:
                     System.out.println("following is all albums:");
+                    System.out.println();
                     AlbumClient.getAlbum();
                     showMenu();
                     break;

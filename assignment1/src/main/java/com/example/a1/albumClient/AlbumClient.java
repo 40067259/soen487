@@ -42,7 +42,19 @@ public class AlbumClient {
             try (CloseableHttpClient client = HttpClients.createDefault()) {
                     HttpGet httpget = new HttpGet(String.format("http://localhost:8080/jersey/albums"));
                     CloseableHttpResponse response = client.execute(httpget);
-                    ReadResponse(response);
+
+                   // ReadResponse(response);
+                Scanner scanner = new Scanner(response.getEntity().getContent());
+
+
+                StringBuilder sb = new StringBuilder();
+                while(scanner.hasNext()){
+                    sb.append(scanner.nextLine());
+                    sb.append("\n");
+                }
+                response.close();
+                scanner.close();
+                System.out.println(sb.toString());
             } catch (IOException e) {
                     e.printStackTrace();
                 }
