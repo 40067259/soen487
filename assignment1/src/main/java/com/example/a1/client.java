@@ -3,14 +3,13 @@ package com.example.a1;
 import com.example.a1.artistClient.artistClient;
 import com.example.a1.rest.Artist;
 import com.example.a1.albumClient.AlbumClient;
-import com.example.a1.albumClient.MyResponseHandler;
 
 import java.io.IOException;
 import java.util.Scanner;
 
 public class client {
 
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) throws IOException, IllegalArgumentException{
         artistClient ac = new artistClient();
         String nickName;
         String firstName;
@@ -97,7 +96,7 @@ public class client {
                     showMenu();
                     break;
                 case 7:
-                    System.out.println("please enter the nick name of the artist ");
+                    System.out.println("please enter isrc of the album ");
                     isrc = keyboard.next();
                     AlbumClient.getAlbumbyID(isrc);
                     showMenu();

@@ -36,8 +36,10 @@ public class AlbumJerseyController {
    @Produces(MediaType.TEXT_PLAIN)
    public String getAlbumByIsrc(@PathParam("isrc") String isrc){
         Album album = albumRest.getAlbum(isrc);
-        if(album == null) return "Sorry, no such an album with isrc "+isrc;
-        else return album.toString();
+        if(album == null)
+            return "Sorry, no such an album with isrc "+isrc;
+        else
+            return album.toString();
    }
 
    @POST
@@ -87,7 +89,7 @@ public class AlbumJerseyController {
         if(isrc == null) return "Sorry, your request information is incomplete";
         boolean success = albumRest.deleteAlbum(isrc);
         if(!success) return "Sorry, your targeted album doesn't exist";
-        return "Your targeted album has deleted successfully";
+        return "Your targeted album has been deleted successfully";
     }
 
 }
