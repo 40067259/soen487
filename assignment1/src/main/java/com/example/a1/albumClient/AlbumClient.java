@@ -85,20 +85,24 @@ public class AlbumClient {
             IOException, IllegalArgumentException{
                 try (CloseableHttpClient client = HttpClients.createDefault())
                 {
-                    String NewD = description;
-                    String NewA = artist;
+
                     if(description.contains(" "))
                     {
-                        NewD = description.replaceAll(" ", "%20");
+                        description = description.replaceAll(" ", "%20");
+                    }
+                    if(title.contains(" "))
+                    {
+                        title = title.replaceAll(" ", "%20");
                     }
                     if(artist.contains(" "))
                     {
-                        NewA = description.replaceAll(" ", "%20");
+                        artist = artist.replaceAll(" ", "%20");
                     }
-                    HttpPost httpPost = new HttpPost(String.format("http://localhost:8080/jersey/createAlbum/%s/%s/%s/%s/%s", isrc, title, NewD, year, NewA));
+
+                    System.out.println("title: "+title+" artist: "+artist+" year "+year+ " isrc "+isrc+" des "+description);
+                    HttpPost httpPost = new HttpPost(String.format("http://localhost:8080/jersey/createAlbum/%s/%s/%s/%s/%s", isrc, title, description, year, artist));
                     CloseableHttpResponse httpResponse = client.execute(httpPost);
                     Scanner scanner = new Scanner(httpResponse.getEntity().getContent());
-
 
                     StringBuilder sb = new StringBuilder();
                     while(scanner.hasNext()){
@@ -117,17 +121,21 @@ public class AlbumClient {
 
             public static void updateAlbum(String isrc, String title, String description, String year, String artist) throws IOException, IllegalArgumentException{
                 try (CloseableHttpClient client = HttpClients.createDefault()) {
-                    String NewD = description;
-                    String NewA = artist;
+
                     if(description.contains(" "))
                     {
-                        NewD = description.replaceAll(" ", "%20");
+                        description = description.replaceAll(" ", "%20");
                     }
                     if(artist.contains(" "))
                     {
-                        NewA = artist.replaceAll(" ", "%20");
+                        artist = artist.replaceAll(" ", "%20");
                     }
-                    HttpPut httpput = new HttpPut(String.format("http://localhost:8080/jersey/modifyAlbum/%s/%s/%s/%s/%s", isrc, title, NewD, year, NewA));
+                    if(title.contains(" "))
+                    {
+                        title = title.replaceAll(" ", "%20");
+                    }
+
+                    HttpPut httpput = new HttpPut(String.format("http://localhost:8080/jersey/modifyAlbum/%s/%s/%s/%s/%s", isrc, title, description, year, artist));
                     CloseableHttpResponse httpResponse = client.execute(httpput);
                     Scanner scanner = new Scanner(httpResponse.getEntity().getContent());
                     StringBuilder sb = new StringBuilder();

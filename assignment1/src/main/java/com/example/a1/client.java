@@ -112,7 +112,14 @@ public class client {
                     year = keyboard.next();
                     System.out.println("enter the artist");
                     artist = keyboard.next();
-                    AlbumClient.addAlbum(isrc, title, description, year, artist);
+                    if(description == null || description.length() == 0) description = "No Description for now";
+
+                    if(isrc.length() != 0 && title.length() != 0 && year.length() != 0&& artist.length() != 0)
+                        AlbumClient.addAlbum(isrc, title, description, year, artist);
+                    else{
+                        System.out.println("Your input information is incomplete, try again");
+                        System.out.println();
+                    }
                     showMenu();
                     break;
                 case 9:
@@ -126,7 +133,12 @@ public class client {
                     year = keyboard.next();
                     System.out.println("enter the artist");
                     artist = keyboard.next();
+                    description = description.length() == 0 ? "No description for now" : description;
+                    if(title.length() != 0 && artist.length() != 0 && year.length() != 0 && isrc.length() != 0)
                     AlbumClient.updateAlbum(isrc, title, description, year, artist);
+                    else{
+                        System.out.println("Your input information is incomplete, please try again");
+                    }
                     showMenu();
                     break;
                 case 10:

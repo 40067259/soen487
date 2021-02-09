@@ -56,7 +56,7 @@ public class AlbumJerseyController {
         album.setArtist(artist);
         album.setIsrc(isrc);
         album.setYear(year);
-        if(description == null)album.setDescription("No description now");
+        if(description == null || description.length() == 0)album.setDescription("No description now");
         else album.setDescription(description);
         boolean success = albumRest.addAlbum(album);
         if(success) return "Created an album successfully!";
@@ -68,7 +68,10 @@ public class AlbumJerseyController {
     public String updateAlbum(@PathParam("isrc")String isrc,@PathParam("title")String title,
                            @PathParam("description")String description,
                            @PathParam("year")String year,@PathParam("artist")String artist){
-        if(isrc == null || title == null || year == null || artist == null){
+        if(isrc == null || isrc.length()==0 ||
+                title == null || title.length() ==0||
+                year == null || year.length() ==0 ||
+                artist == null || artist.length() == 0){
             return "Sorry, failure. Your request is incomplete";
         }
         Album album = new Album();
