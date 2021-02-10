@@ -1,6 +1,10 @@
 # soen487
 Web Service
 
+team member:Zhen Long 27117507
+            Yutao Meng 40022635
+            Guanghui Zhang 40067259
+
 
 Artist API:
 
