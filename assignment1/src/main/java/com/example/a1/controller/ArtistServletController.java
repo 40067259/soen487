@@ -65,7 +65,7 @@ public class ArtistServletController extends HttpServlet {
         artist.setNickName(nickName);
         artist.setFirstName(firstName);
         artist.setLastName(lastName);
-        if(bio == null) artist.setBio("No bio now");
+        if(bio.equals("null")) artist.setBio("No bio now");
         else artist.setBio(bio);
         boolean success = artistRest.addArtist(artist);
 
@@ -88,7 +88,7 @@ public class ArtistServletController extends HttpServlet {
         artist.setNickName(nickName);
         artist.setFirstName(firstName);
         artist.setLastName(lastName);
-        if(bio == null) artist.setBio("No bio now");
+        if(bio.equals("null")) artist.setBio("No bio now");
         else artist.setBio(bio);
 
         boolean success = artistRest.updateArtist(artist);

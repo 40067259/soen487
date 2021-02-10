@@ -1,0 +1,7 @@
+curl -d "nickname=Emma Stone&firstname=Emma&lastname=Stone&bio=looooo" -v POST http://localhost:8080/createArtist
+curl -v GET http://localhost:8080/artists?nickname=Emma+Stone
+curl -v GET http://localhost:8080/artists
+curl -X PUT -d "nickname=Emma Stone&firstname=jay&lastname=long&bio=handsome" http://localhost:8080/updateArtist
+curl -v GET http://localhost:8080/artists
+curl -X DELETE http://localhost:8080/deleteArtist -d "nickname=Emma Stone"
+curl -v GET http://localhost:8080/artists
