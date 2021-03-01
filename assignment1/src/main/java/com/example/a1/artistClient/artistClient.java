@@ -88,10 +88,28 @@ public class artistClient implements ArtistRest {
             artist.setBio(artist.getBio().replace(" ","%20"));
         }
 
+        if(artist.getBio().isEmpty())
+        {
+            artist.setBio(null);
+        }
+
         if (artist.getNickName().contains(" "))
         {
             artist.setNickName(artist.getNickName().replace(" ","%20"));
         }
+
+        if (artist.getFirstName().contains(" "))
+        {
+            System.out.println("first name is no possible to contain a white space, please try again");
+            return false;
+        }
+
+        if (artist.getLastName().contains(" "))
+        {
+            System.out.println("last name is no possible to contain a white space, please try again");
+            return false;
+        }
+
 
         try
         {
@@ -116,9 +134,26 @@ public class artistClient implements ArtistRest {
             artist.setBio(artist.getBio().replace(" ","%20"));
         }
 
+        if(artist.getBio().isEmpty())
+        {
+            artist.setBio(null);
+        }
+
         if (artist.getNickName().contains(" "))
         {
             artist.setNickName(artist.getNickName().replace(" ","%20"));
+        }
+
+        if (artist.getFirstName().contains(" "))
+        {
+            System.out.println("first name is no possible to contain a white space, please try again");
+            return false;
+        }
+
+        if (artist.getLastName().contains(" "))
+        {
+            System.out.println("last name is no possible to contain a white space, please try again");
+            return false;
         }
 
         try
@@ -156,12 +191,12 @@ public class artistClient implements ArtistRest {
 
     public static void main(String[] args)
     {
-        Artist a = new Artist("gg bb","kk","bb","ssrr esdasd");
-        Artist b = new Artist("ccbb","kk","bb","sswawesdasd");
+        Artist a = new Artist("gg bb","k k","b b","ssrr esdasd");
+        Artist b = new Artist("ccbb","k k","b b","sswawesdasd");
         Artist c = new Artist("ccbb","aa","bb","cc");
         artistClient t = new artistClient();
         t.addArtist(a);
-        t.addArtist(b);
+        t.addArtist(c);
 
         t.getArtist("ccbb");
         t.updateArtist(c);
