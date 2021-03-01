@@ -3,7 +3,6 @@ package com.example.a1.albumClient;
 import java.io.IOException;
 import java.util.Scanner;
 
-import org.apache.http.client.ResponseHandler;
 import org.apache.http.client.methods.*;
 import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.impl.client.HttpClients;

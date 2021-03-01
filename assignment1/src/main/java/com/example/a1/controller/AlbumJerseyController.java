@@ -3,9 +3,6 @@ package com.example.a1.controller;
 import com.example.a1.rest.Album;
 import com.example.a1.rest.AlbumRest;
 import com.example.a1.restImp.AlbumRestImp;
-import org.springframework.stereotype.Component;
-import org.springframework.stereotype.Controller;
-import org.springframework.stereotype.Service;
 
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
