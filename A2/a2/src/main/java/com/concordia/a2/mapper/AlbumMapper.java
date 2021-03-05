@@ -27,7 +27,7 @@ public interface AlbumMapper {
 
     @Insert("insert into album(isrc,title,description,year,author,cover) " +
             "values(#{isrc},#{title},#{description},#{year},#{author},#{cover})")
-     public int createAlbum(String isrc, String title, String description, String year, String author, File cover);
+     public int createAlbum(String isrc, String title, String description, String year, String author, Blob cover);
 
      @Insert("insert into artist(nickname,firstname,lastname,bio) " +
              "values(#{nickname},#{firstname},#{lastname},#{bio})")

@@ -29,7 +29,7 @@ public class AlbumServiceImp implements AlbumService{
     }
 
     @Override
-    public int createAlbum(String isrc,String title, String description, String year, String author, File cover) {
+    public int createAlbum(String isrc,String title, String description, String year, String author, Blob cover) {
         return mapper.createAlbum(isrc,title,description,year,author,cover);
     }
 

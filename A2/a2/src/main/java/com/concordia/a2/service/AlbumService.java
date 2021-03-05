@@ -11,7 +11,7 @@ import java.util.List;
 public interface AlbumService {
 
        String getPostTime();
-       int createAlbum(String isrc,String title, String description, String year, String author, File cover);
+       int createAlbum(String isrc,String title, String description, String year, String author, Blob cover);
        int createArtist(String nickname, String firstname, String lastname, String bio);
        int createLogEntry(String timestamp,String type,String isrc);
        String updateAlbum(String isrc,String title, String description, String year, Artist artist, Blob cover);

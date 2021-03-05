@@ -1,9 +1,19 @@
 package com.concordia.a2.pojo;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.xml.bind.annotation.*;
+
+@XmlRootElement
+@XmlAccessorType(XmlAccessType.FIELD)
 public class Artist {
+    @XmlAttribute
     private String nickname;
+    @XmlElement
     private String firstname;
+    @XmlElement
     private String lastname;
+    @XmlElement
     private String bio;
 
     public Artist(String nickname, String firstname, String lastname, String bio) {
@@ -56,4 +66,5 @@ public class Artist {
                 ", bio='" + bio + '\'' +
                 '}';
     }
+
 }

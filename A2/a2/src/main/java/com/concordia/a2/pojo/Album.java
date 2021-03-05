@@ -3,8 +3,6 @@ package com.concordia.a2.pojo;
 import com.concordia.a2.exception.DuplicatedIdException;
 
 import javax.xml.bind.annotation.*;
-import java.sql.Blob;
-import java.util.Collection;
 import java.util.HashSet;
 import java.util.Set;
 import java.util.UUID;
