@@ -1,8 +1,10 @@
 package com.concordia.a2.pojo;
 
+import javax.xml.bind.annotation.XmlRootElement;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
+@XmlRootElement
 public class LogEntry {
     private String isrc;
     private String timeStamp;

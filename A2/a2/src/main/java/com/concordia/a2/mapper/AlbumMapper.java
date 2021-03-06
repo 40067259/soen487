@@ -25,6 +25,9 @@ public interface AlbumMapper {
      @Select("select * from logentry where type = #{type}")
      public List<LogEntry> getLogEntryNoLimit(String type);
 
+     @Select("select * from logentry")
+     public List<LogEntry> getAllEntry();
+
     @Insert("insert into album(isrc,title,description,year,author,cover) " +
             "values(#{isrc},#{title},#{description},#{year},#{author},#{cover})")
      public int createAlbum(String isrc, String title, String description, String year, String author, Blob cover);
