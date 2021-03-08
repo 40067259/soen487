@@ -44,8 +44,13 @@ public class AlbumServiceImp implements AlbumService{
     }
 
     @Override
-    public String updateAlbum(String isrc, String title, String description, String year, Artist artist, Blob cover) {
-        return null;
+    public int updateAlbum(String isrc, String title, String description, String year, String author, Blob cover) {
+        return mapper.updateAlbum(isrc,title,description,year,author,cover);
+    }
+
+    @Override
+    public int updateArtist(String nickname, String firstname, String lastname, String bio) {
+        return mapper.updateArtist(nickname,firstname,lastname,bio);
     }
 
     @Override
@@ -66,22 +71,32 @@ public class AlbumServiceImp implements AlbumService{
 
     @Override
     public List<Album> getAlbumList() {
-        return null;
+        return mapper.getAlbumList();
     }
 
     @Override
-    public String updateAlbumCover(String isrc, Blob cover) {
-        return null;
+    public List<Artist> getArtistList() {
+        return mapper.getArtistList();
     }
 
     @Override
-    public String deleteAlbumCover(String isrc) {
-        return null;
+    public int updateAlbumCover(String isrc, Blob cover) {
+        return mapper.updateCover(isrc,cover);
+    }
+
+    @Override
+    public int deleteAlbumCover(String isrc) {
+        return mapper.updateCover(isrc,null);
+    }
+
+    @Override
+    public int updateAlbumNoCover(String isrc, String title, String description, String year, String author) {
+        return mapper.updateAlbumNoCover(isrc,title,description,year,author);
     }
 
     @Override
     public byte[] getAlbumCover(String isrc) {
-        return new byte[0];
+        return mapper.getCover(isrc);
     }
 
     @Override

@@ -3,7 +3,7 @@ package com.concordia.a2.pojo;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
-public class LogEntry {
+public class LogEntry implements Comparable{
     private String isrc;
     private String timeStamp;
     private String type;
@@ -54,5 +54,10 @@ public class LogEntry {
         LocalDateTime now = LocalDateTime.now();
         String date = formatter.format(now);
         return date;
+    }
+
+    @Override
+    public int compareTo(Object o) {
+        return this.timeStamp.compareTo(((LogEntry)o).getTimeStamp());
     }
 }

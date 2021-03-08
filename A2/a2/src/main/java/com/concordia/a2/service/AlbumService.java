@@ -14,16 +14,19 @@ public interface AlbumService {
        int createAlbum(String isrc,String title, String description, String year, String author, Blob cover);
        int createArtist(String nickname, String firstname, String lastname, String bio);
        int createLogEntry(String timestamp,String type,String isrc);
-       String updateAlbum(String isrc,String title, String description, String year, Artist artist, Blob cover);
+       int updateAlbum(String isrc,String title, String description, String year, String author, Blob cover);
+       int updateAlbumNoCover(String isrc,String title, String description, String year, String author);
+       int updateArtist(String nickname,String firstname,String lastname,String bio);
        int deleteAlbum(String isrc);
 
 
        Album getAlbumInfo(String isrc);
        Artist getArtist(String nickname);
        List<Album> getAlbumList();
+       List<Artist> getArtistList();
 
-       String updateAlbumCover(String isrc,Blob cover);
-       String deleteAlbumCover(String isrc);
+       int updateAlbumCover(String isrc,Blob cover);
+       int deleteAlbumCover(String isrc);
        byte[] getAlbumCover(String isrc);
 
        List<LogEntry> getChangeLogs(String from,String to,String type);

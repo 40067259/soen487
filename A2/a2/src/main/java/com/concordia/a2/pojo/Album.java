@@ -20,12 +20,14 @@ public class Album implements Comparable {
     @XmlElement
     private String year;
     @XmlElement
+    private String author;
+    @XmlElement
     private Artist artist;
     @XmlElement
     public byte[] cover;
 
 
-    public Album(String title, String description, String year, Artist artist,byte[] cover) {
+    public Album(String title, String description, String year,String author, Artist artist,byte[] cover) {
         String id = UUID.randomUUID().toString().toLowerCase().substring(0,6);
         while(idSet.contains(id)){
             id = UUID.randomUUID().toString().toLowerCase().substring(1,7);
@@ -35,22 +37,40 @@ public class Album implements Comparable {
         this.title = title;
         this.description = description;
         this.year = year;
+        this.author = author;
         this.artist = artist;
         idSet.add(this.isrc);
     }
 
-    public Album(String isrc, String title, String description, String year, Artist artist,byte[] cover) throws DuplicatedIdException {
+    public Album(String isrc, String title, String description, String year, String author,Artist artist,byte[] cover) throws DuplicatedIdException {
         if(idSet.contains(isrc)) throw new DuplicatedIdException();
         this.isrc = isrc;
         this.title = title;
         this.description = description;
         this.year = year;
+        this.author = author;
         this.artist = artist;
         this.cover = cover;
         idSet.add(isrc);
     }
 
     public Album(){}
+
+    public String getAuthor() {
+        return author;
+    }
+
+    public void setAuthor(String author) {
+        this.author = author;
+    }
+
+    public byte[] getCover() {
+        return cover;
+    }
+
+    public void setCover(byte[] cover) {
+        this.cover = cover;
+    }
 
     public static Set<String> getIdSet() {
         return idSet;
@@ -107,7 +127,7 @@ public class Album implements Comparable {
                 ", title='" + title + '\'' +
                 ", description='" + description + '\'' +
                 ", year='" + year + '\'' +
-                ", artist=" + artist +
+                ", artist=" + author +
                 '}';
     }
 
