@@ -7,12 +7,14 @@ import org.springframework.web.multipart.commons.CommonsMultipartResolver;
 import org.springframework.web.multipart.support.StandardMultipartHttpServletRequest;
 import org.springframework.web.multipart.support.StandardServletMultipartResolver;
 
+import javax.xml.ws.Endpoint;
+
 @Configuration
 public class RestConfig {
 
-//    @Bean
-//    public MultipartResolver multipartResolver() {
-//        return new StandardServletMultipartResolver();
-//    }
-
+   /* @Bean(name = "soapEndpoint")
+    public Endpoint endpoint() {
+        Endpoint p = new Endpoint();
+        return multipartResolver;
+    }*/
 }

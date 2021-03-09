@@ -2,6 +2,7 @@ package com.concordia.a2.service;
 
 import com.concordia.a2.exception.MissParameterException;
 import com.concordia.a2.exception.RepException;
+import com.concordia.a2.exception.noLogException;
 import com.concordia.a2.pojo.LogEntry;
 
 import java.util.List;
@@ -13,7 +14,7 @@ import javax.jws.WebService;
 public interface logService {
 
     @WebMethod(operationName = "getAllLogEntry")
-    List<LogEntry> getChangeLogs(@WebParam(name = "from") String from, @WebParam(name = "to") String to, @WebParam(name = "type") String type) throws MissParameterException;
+    List<LogEntry> getChangeLogs(@WebParam(name = "from") String from, @WebParam(name = "to") String to, @WebParam(name = "type") String type) throws MissParameterException, noLogException;
     @WebMethod(operationName = "clearLogs")
     String clearLogs() throws RepException;
 }

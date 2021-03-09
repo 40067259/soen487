@@ -12,14 +12,9 @@ import javax.xml.ws.Endpoint;
 @SpringBootApplication
 public class A2Application extends SpringBootServletInitializer {
     public static void main(String[] args) {
-        Endpoint.publish("http://localhost:8867/logService", new logServiceImp());
-        //SpringApplication.run(A2Application.class, args);
+        //Endpoint.publish("http://localhost:8867/logService", new logServiceImp());
+        SpringApplication.run(A2Application.class, args);
     }
 
-   /*@Bean(name = "multipartResolver")
-    public CommonsMultipartResolver multipartResolver() {
-        CommonsMultipartResolver multipartResolver = new CommonsMultipartResolver();
-        return multipartResolver;
-    }*/
 
 }
