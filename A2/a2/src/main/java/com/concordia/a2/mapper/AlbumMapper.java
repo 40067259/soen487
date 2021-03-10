@@ -2,7 +2,7 @@ package com.concordia.a2.mapper;
 
 import com.concordia.a2.pojo.Album;
 import com.concordia.a2.pojo.Artist;
-import com.concordia.a2.pojo.LogEntry;
+import com.soen487.log_ws.LogEntry;
 import org.apache.ibatis.annotations.*;
 
 import java.io.File;
@@ -23,6 +23,9 @@ public interface AlbumMapper {
 
      @Select("select * from artist")
      public List<Artist> getArtistList();
+
+    @Select("select * from logentry")
+    public List<LogEntry> getAllEntry();
 
      @Select("select * from logentry where type = #{type} and " +
              "STRCMP(timestamp,#{from}) >= 0 and STRCMP(timestamp,#{to}) <= 0")

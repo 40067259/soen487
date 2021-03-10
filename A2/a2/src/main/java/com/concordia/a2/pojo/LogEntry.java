@@ -1,11 +1,20 @@
-package com.concordia.a2.pojo;
+/*package com.concordia.a2.pojo;
 
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
+@XmlRootElement
+@XmlAccessorType(XmlAccessType.FIELD)
 public class LogEntry implements Comparable{
+    @XmlElement(required = true)
     private String isrc;
+    @XmlElement(required = true)
     private String timeStamp;
+    @XmlElement(required = true)
     private String type;
 
     public LogEntry(String isrc, String type) {
@@ -60,4 +69,4 @@ public class LogEntry implements Comparable{
     public int compareTo(Object o) {
         return this.timeStamp.compareTo(((LogEntry)o).getTimeStamp());
     }
-}
+}*/
