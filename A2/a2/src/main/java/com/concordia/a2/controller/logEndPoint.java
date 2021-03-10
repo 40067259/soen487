@@ -6,6 +6,7 @@ import com.concordia.a2.exception.RepException;
 import com.concordia.a2.exception.noLogException;
 import com.concordia.a2.pojo.ServiceStatus;
 import com.concordia.a2.service.logService;
+import com.soen487.log_ws.ClearLogRequest;
 import com.soen487.log_ws.GetChangeLogsRequest;
 import com.soen487.log_ws.GetChangeLogsResponse;
 import com.soen487.log_ws.LogList;
@@ -55,10 +56,15 @@ public class logEndPoint {
 
     @PayloadRoot(namespace = NAMESPACE_URI, localPart = "clearLogRequest")
     @ResponsePayload
-    public String ClearLogRequest() throws RepException {
+    public ClearLogRequest ClearLogRequest() throws RepException {
         ServiceStatus serviceStatus = service.clearLogs();
 
-        throw new RepException(serviceStatus.getDescription());
+        if (serviceStatus.getCode().equalsIgnoreCase("Error"))
+         throw new RepException(serviceStatus.getDescription());
+        ClearLogRequest response = new ClearLogRequest();
+        response.setResult(serviceStatus.getDescription());
+        return response;
+
     }
 
 }

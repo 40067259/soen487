@@ -6,7 +6,7 @@ import org.springframework.ws.soap.server.endpoint.annotation.SoapFault;
 
 @SoapFault(faultCode = FaultCode.CUSTOM,
         customFaultCode = "{" + RepException.NAMESPACE_URI + "}custom_fault",
-        faultStringOrReason = "@faultString")
+        faultStringOrReason = "it is not supported yet.")
 public class RepException extends Exception{
     private ServiceStatus serviceStatus;
 
