@@ -20,7 +20,6 @@ import java.io.IOException;
 import java.sql.Blob;
 import java.sql.SQLException;
 import java.util.Collections;
-import java.util.HashMap;
 import java.util.List;
 import java.util.UUID;
 import java.util.concurrent.CopyOnWriteArrayList;
@@ -45,12 +44,21 @@ public class AlbumController {
          return list;
     }
 
+    @GetMapping(path = "getAlbumCover/{isrc}",produces = "application/json")
+    public Album getAlbumCover(@PathVariable("isrc") String isrc){
+        System.out.println("*******");
+        Album album = service.getAlbumInfo(isrc);
+        if(album == null) return null;
+        return album;
+    }
+
     @GetMapping(path = "getAllAlbums",produces = "application/json")
     public List<Album> getAllAlbums(){
         list = service.getAlbumList();
         Collections.sort(list);
         return list;
     }
+
 
     //,consumes = "application/x-www-form-urlencoded"
     @PostMapping(path = "createAlbum",produces = "application/json")
@@ -148,7 +156,7 @@ public class AlbumController {
         }
         service.updateAlbumCover(isrc,blob);
         service.createLogEntry(service.getPostTime(), "UPDATE",isrc);
-        return "Created an album successfully";
+        return "album cover was updated successfully";
     }
 
     @DeleteMapping(path = "deleteAlbum/{isrc}",produces = "application/json")
