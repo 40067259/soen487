@@ -1,0 +1,43 @@
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://www.soen487.com/log-ws"
+           targetNamespace="http://www.soen487.com/log-ws" elementFormDefault="qualified">
+
+    <xs:element name="getChangeLogsResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="changedLogs" type="tns:logList"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="getChangeLogsRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="from" type="xs:string"/>
+                <xs:element name="to" type="xs:string"/>
+                <xs:element name="type" type="xs:string"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+     <xs:complexType name = "logList">
+        <xs:sequence>
+            <xs:element name="list" minOccurs="0" maxOccurs="unbounded" type="tns:logEntry"/>
+        </xs:sequence>
+     </xs:complexType>
+
+    <xs:element name="clearLogRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="result" type="xs:string"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:complexType name="logEntry">
+        <xs:sequence>
+            <xs:element name="isrc" type="xs:string"/>
+            <xs:element name="timeStamp" type="xs:string"/>
+            <xs:element name="type" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+</xs:schema>

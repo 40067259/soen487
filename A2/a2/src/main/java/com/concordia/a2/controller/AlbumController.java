@@ -4,7 +4,7 @@ import com.concordia.a2.exception.RepException;
 import com.concordia.a2.mapper.AlbumMapper;
 import com.concordia.a2.pojo.Album;
 import com.concordia.a2.pojo.Artist;
-import com.concordia.a2.pojo.LogEntry;
+import com.soen487.log_ws.LogEntry;
 import com.concordia.a2.service.AlbumService;
 
 import elemental.json.JsonObject;
