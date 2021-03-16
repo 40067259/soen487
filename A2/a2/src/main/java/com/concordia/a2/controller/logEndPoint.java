@@ -37,19 +37,17 @@ public class logEndPoint {
     public GetChangeLogsResponse getChangeLogs(@RequestPayload GetChangeLogsRequest request) throws MissParameterException, noLogException {
 
         GetChangeLogsResponse response = new GetChangeLogsResponse();
-        if(request.getFrom().isEmpty()&&request.getTo().isEmpty()&&request.getType().isEmpty())
+        if(request.getFrom().equals("null")&&request.getTo().equals("null")&&request.getType().equals("null"))
         {
             response.setChangedLogs(service.getAllChangeLogs());
             return response;
         }
 
-        if(request.getFrom().isEmpty()||request.getTo().isEmpty()||request.getType().isEmpty())
+        if(request.getFrom().equals("null")||request.getTo().equals("null")||request.getType().equals("null"))
             throw new MissParameterException("missing parameter error.");
 
         response.setChangedLogs(service.getChangeLogs(request.getFrom(),request.getTo(),request.getType()));
 
-        if (response.getChangedLogs() == null)
-            throw new noLogException("there is no log yet.");
 
         return response;
     }
