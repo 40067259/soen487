@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement>com.concordia.a2.exception</OriginalElement>
+  <nodes>
+    <node x="-14.0" y="-20.0">com.concordia.a2.config.SOAP_Config</node>
+    <node x="2955.5" y="2417.5">com.concordia.a2.pojo.Album</node>
+    <node x="1400.0" y="728.0">com.concordia.a2.controller.logEndPoint</node>
+    <node x="2245.5" y="873.0">com.concordia.a2.controller.AlbumController</node>
+    <node x="3454.0" y="2573.0">com.concordia.a2.exception.DuplicatedIdException</node>
+    <node x="2047.0" y="1681.5">com.concordia.a2.controller.ArtistController</node>
+    <node x="2418.5" y="139.0">com.concordia.a2.exception.RepException</node>
+    <node x="2340.5" y="1247.5">com.concordia.a2.service.AlbumService</node>
+    <node x="611.0" y="2670.5">com.concordia.a2.exception.noLogException</node>
+    <node x="2340.5" y="2407.5">com.concordia.a2.mapper.AlbumMapper</node>
+    <node x="2340.5" y="1916.0">com.concordia.a2.service.AlbumServiceImp</node>
+    <node x="990.5" y="2528.0">com.concordia.a2.service.logService</node>
+    <node x="1464.0" y="550.5">com.concordia.a2.exception.MissParameterException</node>
+    <node x="1704.0" y="2026.0">com.concordia.a2.pojo.Artist</node>
+    <node x="572.0" y="-9.5">com.concordia.a2.exception.DetailSoapFaultDefinitionExceptionResolver</node>
+    <node x="643.0" y="339.5">com.concordia.a2.pojo.ServiceStatus</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="com.concordia.a2.service.AlbumService" target="com.concordia.a2.pojo.Album">
+      <point x="219.5" y="-0.0" />
+      <point x="3120.0" y="1440.0" />
+      <point x="-40.0" y="-182.5" />
+    </edge>
+    <edge source="com.concordia.a2.service.AlbumServiceImp" target="com.concordia.a2.mapper.AlbumMapper">
+      <point x="0.0" y="204.0" />
+      <point x="0.0" y="-192.5" />
+    </edge>
+    <edge source="com.concordia.a2.controller.ArtistController" target="com.concordia.a2.pojo.Artist">
+      <point x="-113.0" y="-0.0" />
+      <point x="1880.0" y="1720.0" />
+      <point x="40.0" y="-94.0" />
+    </edge>
+    <edge source="com.concordia.a2.mapper.AlbumMapper" target="com.concordia.a2.pojo.Album">
+      <point x="219.5" y="-0.0" />
+      <point x="-204.5" y="-0.0" />
+    </edge>
+    <edge source="com.concordia.a2.exception.noLogException" target="com.concordia.a2.pojo.ServiceStatus">
+      <point x="0.0" y="-49.5" />
+      <point x="0.0" y="60.5" />
+    </edge>
+    <edge source="com.concordia.a2.controller.AlbumController" target="com.concordia.a2.service.AlbumService">
+      <point x="0.0" y="127.0" />
+      <point x="0.0" y="-192.5" />
+    </edge>
+    <edge source="com.concordia.a2.controller.logEndPoint" target="com.concordia.a2.service.logService">
+      <point x="-240.0" y="-0.0" />
+      <point x="1160.0" y="800.0" />
+      <point x="0.0" y="-72.0" />
+    </edge>
+    <edge source="com.concordia.a2.pojo.Album" target="com.concordia.a2.exception.DuplicatedIdException">
+      <point x="204.5" y="-0.0" />
+      <point x="-106.0" y="-0.0" />
+    </edge>
+    <edge source="com.concordia.a2.controller.logEndPoint" target="com.concordia.a2.exception.RepException">
+      <point x="240.0" y="-0.0" />
+      <point x="2520.0" y="800.0" />
+      <point x="-40.0" y="61.0" />
+    </edge>
+    <edge source="com.concordia.a2.service.logService" target="com.concordia.a2.mapper.AlbumMapper">
+      <point x="169.5" y="-0.0" />
+      <point x="-219.5" y="-0.0" />
+    </edge>
+    <edge source="com.concordia.a2.controller.logEndPoint" target="com.concordia.a2.exception.MissParameterException">
+      <point x="0.0" y="-72.0" />
+      <point x="0.0" y="49.5" />
+    </edge>
+    <edge source="com.concordia.a2.exception.MissParameterException" target="com.concordia.a2.pojo.ServiceStatus">
+      <point x="176.0" y="-0.0" />
+      <point x="1880.0" y="600.0" />
+      <point x="1880.0" y="413.3333333333335" />
+      <point x="117.0" y="13.333333333333485" />
+    </edge>
+    <edge source="com.concordia.a2.service.AlbumServiceImp" target="com.concordia.a2.pojo.Artist">
+      <point x="-219.5" y="-0.0" />
+      <point x="136.0" y="-0.0" />
+    </edge>
+    <edge source="com.concordia.a2.exception.RepException" target="com.concordia.a2.pojo.ServiceStatus">
+      <point x="-80.0" y="61.0" />
+      <point x="2480.0" y="360.0" />
+      <point x="117.0" y="-40.0" />
+    </edge>
+    <edge source="com.concordia.a2.controller.AlbumController" target="com.concordia.a2.exception.RepException">
+      <point x="0.0" y="-127.0" />
+      <point x="0.0" y="61.0" />
+    </edge>
+    <edge source="com.concordia.a2.config.SOAP_Config" target="com.concordia.a2.exception.DetailSoapFaultDefinitionExceptionResolver">
+      <point x="254.0" y="-0.0" />
+      <point x="-188.0" y="-0.0" />
+    </edge>
+    <edge source="com.concordia.a2.service.AlbumServiceImp" target="com.concordia.a2.pojo.Album">
+      <point x="219.5" y="-0.0" />
+      <point x="3040.0" y="2120.0" />
+      <point x="-120.0" y="-182.5" />
+    </edge>
+    <edge source="com.concordia.a2.exception.DetailSoapFaultDefinitionExceptionResolver" target="com.concordia.a2.pojo.ServiceStatus">
+      <point x="0.0" y="49.5" />
+      <point x="0.0" y="-60.5" />
+    </edge>
+    <edge source="com.concordia.a2.pojo.Album" target="com.concordia.a2.pojo.Artist">
+      <point x="-80.0" y="-182.5" />
+      <point x="3080.0" y="1840.0" />
+      <point x="1920.0" y="1840.0" />
+      <point x="80.0" y="-94.0" />
+    </edge>
+    <edge source="com.concordia.a2.service.AlbumService" target="com.concordia.a2.pojo.Artist">
+      <point x="-219.5" y="-0.0" />
+      <point x="1860.0" y="1440.0" />
+      <point x="20.0" y="-94.0" />
+    </edge>
+    <edge source="com.concordia.a2.controller.ArtistController" target="com.concordia.a2.service.AlbumService">
+      <point x="113.0" y="-0.0" />
+      <point x="2520.0" y="1720.0" />
+      <point x="-40.0" y="192.5" />
+    </edge>
+    <edge source="com.concordia.a2.mapper.AlbumMapper" target="com.concordia.a2.pojo.Artist">
+      <point x="-219.5" y="-40.0" />
+      <point x="1840.0" y="2560.0" />
+      <point x="0.0" y="94.0" />
+    </edge>
+    <edge source="com.concordia.a2.service.logService" target="com.concordia.a2.pojo.ServiceStatus">
+      <point x="-40.0" y="-72.0" />
+      <point x="1120.0" y="440.0" />
+      <point x="117.0" y="40.0" />
+    </edge>
+    <edge source="com.concordia.a2.controller.AlbumController" target="com.concordia.a2.pojo.Artist">
+      <point x="-314.5" y="-0.0" />
+      <point x="1840.0" y="1000.0" />
+      <point x="0.0" y="-94.0" />
+    </edge>
+    <edge source="com.concordia.a2.exception.DetailSoapFaultDefinitionExceptionResolver" target="com.concordia.a2.exception.RepException">
+      <point x="188.0" y="-0.0" />
+      <point x="2560.0" y="40.0" />
+      <point x="0.0" y="-61.0" />
+    </edge>
+    <edge source="com.concordia.a2.controller.AlbumController" target="com.concordia.a2.pojo.Album">
+      <point x="40.0" y="127.0" />
+      <point x="2600.0" y="1200.0" />
+      <point x="3140.0" y="1200.0" />
+      <point x="-20.0" y="-182.5" />
+    </edge>
+    <edge source="com.concordia.a2.controller.logEndPoint" target="com.concordia.a2.pojo.ServiceStatus">
+      <point x="240.0" y="-40.0" />
+      <point x="1920.0" y="760.0" />
+      <point x="1920.0" y="400.0" />
+      <point x="117.0" y="-0.0" />
+    </edge>
+    <edge source="com.concordia.a2.service.AlbumServiceImp" target="com.concordia.a2.service.AlbumService">
+      <point x="0.0" y="-204.0" />
+      <point x="0.0" y="192.5" />
+    </edge>
+  </edges>
+  <settings layout="Directed Orthogonal" zoom="0.18335438301415016" x="1208.1050137928592" y="850.7857844035732" />
+  <SelectedNodes>
+    <node>com.concordia.a2.config.SOAP_Config</node>
+  </SelectedNodes>
+  <Categories>
+    <Category>Fields</Category>
+    <Category>Constructors</Category>
+    <Category>Methods</Category>
+    <Category>Properties</Category>
+    <Category>Inner Classes</Category>
+  </Categories>
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+
