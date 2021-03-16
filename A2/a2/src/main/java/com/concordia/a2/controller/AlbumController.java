@@ -167,7 +167,7 @@ public class AlbumController {
 
     @DeleteMapping(path = "deleteAlbum/{isrc}",produces = "application/json")
     public String deleteAlbum(@PathVariable("isrc") String isrc) throws RepException {
-        if(isrc == null || isrc.length() == 0) throw new RepException("isrc is empty, isrc is a must");
+        if(isrc.equals("null") || isrc.length() == 0) throw new RepException("isrc is empty, isrc is a must");
 
         Album a = service.getAlbumInfo(isrc);
         if(a == null) return "Sorry,No such an isrc, please double check";

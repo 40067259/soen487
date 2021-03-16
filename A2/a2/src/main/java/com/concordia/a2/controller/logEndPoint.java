@@ -48,6 +48,8 @@ public class logEndPoint {
 
         response.setChangedLogs(service.getChangeLogs(request.getFrom(),request.getTo(),request.getType()));
 
+        /*if (response.getChangedLogs() == null)
+            throw new noLogException("there is no log yet.");*/
 
         return response;
     }
