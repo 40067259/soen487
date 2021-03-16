@@ -1,4 +1,4 @@
-/*package com.concordia.a2.config;
+package com.concordia.a2.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -15,4 +15,4 @@ public class RestConfig {
 //        return new StandardServletMultipartResolver();
 //    }
 
-}*/
+}

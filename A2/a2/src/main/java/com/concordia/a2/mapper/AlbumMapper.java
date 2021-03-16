@@ -2,7 +2,7 @@ package com.concordia.a2.mapper;
 
 import com.concordia.a2.pojo.Album;
 import com.concordia.a2.pojo.Artist;
-import com.soen487.log_ws.LogEntry;
+import com.concordia.a2.pojo.LogEntry;
 import org.apache.ibatis.annotations.*;
 
 import java.io.File;
@@ -23,9 +23,6 @@ public interface AlbumMapper {
 
      @Select("select * from artist")
      public List<Artist> getArtistList();
-
-    @Select("select * from logentry")
-    public List<LogEntry> getAllEntry();
 
      @Select("select * from logentry where type = #{type} and " +
              "STRCMP(timestamp,#{from}) >= 0 and STRCMP(timestamp,#{to}) <= 0")
@@ -59,7 +56,7 @@ public interface AlbumMapper {
             "author=#{author} WHERE isrc = #{isrc}")
     public int updateAlbumNoCover(String isrc,String title, String description, String year, String author);
 
-     @Update("UPDATE artist SET firstname=#{firstname},lastname=#{lastname},bio=#{bio}," +
+     @Update("UPDATE artist SET firstname=#{firstname},lastname=#{lastname},bio=#{bio}" +
             "WHERE nickname = #{nickname}")
      public int updateArtist(String nickname, String firstname, String lastname, String bio);
 

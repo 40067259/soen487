@@ -4,7 +4,7 @@ import com.concordia.a2.exception.RepException;
 import com.concordia.a2.mapper.AlbumMapper;
 import com.concordia.a2.pojo.Album;
 import com.concordia.a2.pojo.Artist;
-import com.soen487.log_ws.LogEntry;
+import com.concordia.a2.pojo.LogEntry;
 import com.concordia.a2.service.AlbumService;
 
 import elemental.json.JsonObject;
@@ -55,6 +55,11 @@ public class AlbumController {
     @GetMapping(path = "getAllAlbums",produces = "application/json")
     public List<Album> getAllAlbums(){
         list = service.getAlbumList();
+        for(int i = 0; i < list.size();i++){
+            String author = list.get(i).getAuthor();
+            Artist artist = service.getArtist(author);
+            list.get(i).setArtist(artist);
+        }
         Collections.sort(list);
         return list;
     }
@@ -110,8 +115,8 @@ public class AlbumController {
         //create a new album
         Artist artist = null;
         if(!nickname.equals("null")){
-            nickname = nickname.toLowerCase();
-            artist = service.getArtist(nickname);
+            String nick = nickname.toLowerCase();
+            artist = service.getArtist(nick);
             if(artist == null) service.createArtist(nickname,firstname,lastname,bio);
         }
 
@@ -121,6 +126,7 @@ public class AlbumController {
             String first = !firstname.equals("null") ? firstname : artist.getFirstname();
             String last = !lastname.equals("null") ? lastname : artist.getLastname();
             String bi = !bio.equals("null") ? bio : artist.getBio();
+            System.out.println(first+" "+last+" "+bi);
             service.updateArtist(nickname,first,last,bi);
         }
 

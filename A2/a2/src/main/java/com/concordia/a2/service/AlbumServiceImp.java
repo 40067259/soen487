@@ -3,9 +3,12 @@ package com.concordia.a2.service;
 import com.concordia.a2.mapper.AlbumMapper;
 import com.concordia.a2.pojo.Album;
 import com.concordia.a2.pojo.Artist;
+import com.concordia.a2.pojo.LogEntry;
+import org.apache.ibatis.annotations.Mapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.io.File;
 import java.sql.Blob;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
@@ -96,10 +99,10 @@ public class AlbumServiceImp implements AlbumService{
         return mapper.getCover(isrc);
     }
 
-    /*@Override
+    @Override
     public List<LogEntry> getChangeLogs(String from, String to, String type) {
         return null;
-    }*/
+    }
 
     @Override
     public String clearLogs() {
