@@ -59,7 +59,7 @@ public interface AlbumMapper {
             "author=#{author} WHERE isrc = #{isrc}")
     public int updateAlbumNoCover(String isrc,String title, String description, String year, String author);
 
-     @Update("UPDATE artist SET firstname=#{firstname},lastname=#{lastname},bio=#{bio}," +
+     @Update("UPDATE artist SET firstname=#{firstname},lastname=#{lastname},bio=#{bio}" +
             "WHERE nickname = #{nickname}")
      public int updateArtist(String nickname, String firstname, String lastname, String bio);
 
